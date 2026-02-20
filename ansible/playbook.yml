@@ -27,6 +27,6 @@
         group: wheel
         mode: '0644'
     - name: reload nginx service
-      ansible.bulitin.service:
+      ansible.builtin.service:
         name: nginx
         state: reloaded
