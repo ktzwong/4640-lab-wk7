@@ -1,8 +1,17 @@
 - name: Configure web servers
   tasks:
     - name: Install nginx
+      ansbile.builtin.apt:
+        name: nginx
+        state: present
     - name: create directory structure for web documents
+      ansible.builtin.file:
+        path: /web/html
+        state: directory
+        mode: '0755'
     - name: copy nginx conf file to server
+      copy:
+        src: /web/html
     - name: create link to nginx config file to enable it
     - name: Generate index.html file from template
     - name: reload nginx service
