@@ -1,7 +1,7 @@
 - name: Configure web servers
   tasks:
     - name: Install nginx
-      ansbile.builtin.apt:
+      ansible.builtin.apt:
         name: nginx
         state: present
     - name: create directory structure for web documents
