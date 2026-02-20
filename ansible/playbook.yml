@@ -11,7 +11,12 @@
         mode: '0755'
     - name: copy nginx conf file to server
       copy:
-        src: /web/html
+        src: file/nginx.conf
+        dest: /etc/nginx 
     - name: create link to nginx config file to enable it
+
     - name: Generate index.html file from template
     - name: reload nginx service
+      ansible.bulitin.service:
+        name: nginx
+        state: reloaded
