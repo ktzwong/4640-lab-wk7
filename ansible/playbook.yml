@@ -14,11 +14,21 @@
         src: file/nginx.conf
         dest: /etc/nginx 
     - name: create link to nginx config file to enable it
+<<<<<<< HEAD
       ansible.builtin.file:
        src: /etc/nginx/sites-available/nginx.conf
        dest: /etc/nginx/sites-enabled/nginx.conf
        state: link
+=======
+    
+>>>>>>> d669f0d (create index.html from templat efile)
     - name: Generate index.html file from template
+      ansible.builtin.template:
+        src: ./templates/index.html.j2
+        dest: /web/html/index.html
+        owner: bin
+        group: wheel
+        mode: '0644'
     - name: reload nginx service
       ansible.bulitin.service:
         name: nginx
